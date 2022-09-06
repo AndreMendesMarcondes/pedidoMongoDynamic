@@ -31,5 +31,17 @@ namespace ADN.Data.Repositorio
             }
            
         }
+
+        public async Task Insert(Pedido pedido)
+        {
+            try
+            {
+                await _collection.InsertOneAsync(pedido);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

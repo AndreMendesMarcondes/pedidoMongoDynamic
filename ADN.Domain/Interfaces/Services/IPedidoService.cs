@@ -4,6 +4,7 @@ namespace ADN.Domain.Interfaces.Services
 {
     public interface IPedidoService
     {
-        Task<List<Pedido>> GetAll();
+        Task<List<PedidoGetDTO>> GetAll();
+        Task Insert(Pedido pedido);
     }
 }

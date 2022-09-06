@@ -1,21 +1,27 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace ADN.Domain.Domain
 {
+    [BsonIgnoreExtraElements]
     public class Pedido
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string id { get; set; }
-        public List<dynamic> itens { get; set; }
-        public dynamic observacao { get; set; }
+        public string? Id { get; set; }
+        public string Valor { get; set; }
     }
 
-    public class Item
+    [BsonIgnoreExtraElements]
+    public class PedidoInsertDTO
     {
-        public string nome { get; set; }
-        public double preco { get; set; }
-        public string desc { get; set; }
+        public object Valor { get; set; }
+    }
+
+    public class PedidoGetDTO
+    {
+        public string? Id { get; set; }
+        public object Valor { get; set; }
     }
 }
