@@ -38,7 +38,9 @@ namespace ADN.API.Controllers
             {
                 if (pedidoDto.Valor is JsonElement)
                 {
-                    pedido.Valor = pedidoDto.Valor.ToString().Replace("\"", "'");
+                    pedido.Valor = pedidoDto.Valor.ToString().Replace("\"", "'")
+                                                             .Replace("\n", "")
+                                                             .Replace("\\", "");
                 }
                 else
                 {
